@@ -1,4 +1,4 @@
-from business_rules import calculate_rental_cost, get_rental_discount
+from business_rules import calculate_quote, calculate_rental_cost, get_rental_discount
 
 
 def test_calculate_rental_cost_multiple():
@@ -31,3 +31,15 @@ def test_discount_contractor_two_days():
 
 def test_discount_contractor_seven_days():
     assert get_rental_discount(7, True) == 0.20
+
+
+def test_quote_at_waiver_limit_has_no_waiver():
+    assert round(calculate_quote(150.00, 1), 2) == 150.00
+
+
+def test_quote_just_below_waiver_limit_adds_waiver():
+    assert round(calculate_quote(149.99, 1), 2) == 174.99
+
+
+def test_quote_contractor_short_rental():
+    assert round(calculate_quote(60.00, 2, True), 2) == 133.00
