@@ -51,3 +51,30 @@ def requires_deposit(quote: float) -> bool:
 def needs_inspection(days: int, quote: float) -> bool:
     """Return True when the rental needs a pickup inspection."""
     return days >= INSPECTION_DAYS and quote > INSPECTION_QUOTE_LIMIT
+
+
+def total_quoted(rentals: list) -> float:
+    """Return the sum of the quotes for every rental in the list."""
+    total = 0.0
+    for rental in rentals:
+        quote = calculate_quote(
+            rental["daily_rate"], rental["days"], rental["contractor"]
+        )
+
+        total += quote
+    return total
+
+
+def largest_rental(rentals: list) -> str:
+    """Return the customer with the largest quote, keeping the first on a tie."""
+    highest = 0.0
+    top_customer = ""
+    for rental in rentals:
+        quote = calculate_quote(
+            rental["daily_rate"], rental["days"], rental["contractor"]
+        )
+
+        if quote > highest:
+            highest = quote
+            top_customer = rental["customer"]
+    return top_customer
