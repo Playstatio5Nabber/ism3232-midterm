@@ -1,4 +1,4 @@
-# ISM4343 Midterm: Ridgeline Tool Rental
+# ISM3232  Midterm: Ridgeline Tool Rental
 
 - **Name:** Sami Ali
 - **Version:** [Alpha]
@@ -7,11 +7,11 @@
 
 ## What This Program Does
 
-This program turns ridgeline tool rental's pricing rules into multiple functions on python functions. It works out a quote for indivual rentals. it also checks iif the rental would needa deposit or a pickup inspection, and printsa report with a summary of all rentals.
+This program turns ridgeline tool turns  rental's pricing rules into multiple functions on python functions. It works out a quote for indivdual rental's. it also checks if the rental would need a deposit or a pickup inspection, and prints a report with a summary of all rentals.
 
-##Business Rules 
+## Business Rules 
 
--The rentals cost is the daily rate times the number of days.
+- The rentals cost is the daily rate times the number of days.
 - Rentals under 3 days get no discount, 3 to 6 days get 10% off, and 7 days or more get 20% off.
 - Licensed contractors always get atleast 10% off, even with rentals under 3 days.
 - A $25 damage waiver is added when the discounted cost is under $150.
@@ -21,22 +21,22 @@ This program turns ridgeline tool rental's pricing rules into multiple functions
 
 ## How to run 
 
-...
+'''
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python3 main.py
-...
+'''
 
 
 ## How to Test
 
-...
+,,,
 
 ruff format .
 ruff check .
 python3 -m pytest -v
-... 
+,,,
 
 
 The project has 23 pytest tests.
